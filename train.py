@@ -154,9 +154,9 @@ def train(args):
 if __name__ == '__main__':
     args = get_config()
     
-    torch.manual_seed(0)
-    random.seed(0)
-    np.random.seed(0)
+    torch.manual_seed(args.seed)
+    random.seed(args.seed)
+    np.random.seed(args.seed)
 
     print('='*25)
     print('Training with the following arguments')

@@ -6,6 +6,7 @@ import json
 import gymnasium as gym
 import panda_gym
 import copy
+import random
 
 import matplotlib.pyplot as plt
 import imageio
@@ -162,6 +163,10 @@ def evaluate(args):
 
 if __name__ == '__main__':
     args = get_config()
+
+    torch.manual_seed(args.seed)
+    random.seed(args.seed)
+    np.random.seed(args.seed)
 
     ignore_args = {'loadloc', 'num_evals', 'render_mode', 'device', 'save_video', 'domain_randomize', 'inference_steps', 'n_rollout_actions'}
     
