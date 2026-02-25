@@ -3,8 +3,12 @@
 *.hdf5
 datasets/
 *.pt
+
+# slurm files
 *.out
 *.sh
+results/
+log_file.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
