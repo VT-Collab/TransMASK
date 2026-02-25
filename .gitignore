@@ -1,6 +1,10 @@
 # large files
 *.pt
 *.hdf5
+datasets/
+*.pt
+*.out
+*.sh
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
