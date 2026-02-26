@@ -72,7 +72,7 @@ def evaluate(args):
         eval_policy = policy
     eval_policy.eval()
 
-    training_loss = np.log(ckpt['loss'])
+    training_loss = np.log([l.item() for l in ckpt['loss']])
     _, axs = plt.subplots(1, 1, figsize=(10, 5))
 
     axs.plot(training_loss)

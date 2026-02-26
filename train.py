@@ -115,7 +115,7 @@ def train(args):
 
     start_epoch = len(LOSS)
     for epoch in tqdm(range(start_epoch, start_epoch + args.epochs)):
-        loss = 0
+        l = 0
 
         for i, batch in enumerate(dataloader):
             for k, v in batch.items():
@@ -130,9 +130,9 @@ def train(args):
             optimizer.step()
             if args.use_ema_model:
                 ema.step(policy)
-            loss += loss.item()
+            l += loss.item()
 
-        LOSS.append(loss)
+        LOSS.append(l)
 
         if epoch % 100 == 0:
             ckpt = {'policy': policy.state_dict(),
