@@ -16,7 +16,7 @@ def get_config():
     parser.add_argument('--num_distractors', type=int, default=1)
     
     # Training arguments
-    parser.add_argument('--seed', type=int, default=1)
+    parser.add_argument('--seed', type=int, default=3)
     parser.add_argument('--policy', type=str, default='deterministic')
     parser.add_argument('--use_ema_model', action='store_true')
     parser.add_argument('--ema_power', type=float, default=0.75)

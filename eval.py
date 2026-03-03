@@ -72,7 +72,7 @@ def evaluate(args):
         eval_policy = policy
     eval_policy.eval()
 
-    training_loss = np.log([l.item() for l in ckpt['loss']])
+    training_loss = np.log(ckpt['loss'])
     _, axs = plt.subplots(1, 1, figsize=(10, 5))
 
     axs.plot(training_loss)
@@ -134,7 +134,6 @@ def evaluate(args):
                     if 'Flip' in args.env_name:
                         if np.linalg.norm(env.unwrapped.robot.get_ee_position() - env.unwrapped.task.object_position) < 0.05 and not reached_object:
                             success_rate += 0.5
-                            print('.')
                             reached_object = True
             if success:
                 break
