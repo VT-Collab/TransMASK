@@ -94,7 +94,6 @@ def evaluate(args):
         obs, _ = env.reset()
         obs_buffer.reset()
         obs_buffer.add(obs)
-        reached_object = False
         
         frames = []
         for t in range(0, args.time_horizon, args.n_rollout_actions):
@@ -121,20 +120,6 @@ def evaluate(args):
                             video_writer.append_data(f)
                     success_rate += 1
                     break
-                if 'PickAndPlace' in args.env_name:
-                    if t == args.time_horizon - 1 and obs['achieved_goal'][-1] > 3 * env.unwrapped.task.object_size:
-                        success_rate += 0.5
-                        break
-                if args.domain_randomize:
-                    if 'Push' in args.env_name:
-                        if np.linalg.norm(obs['achieved_goal'] - obs['desired_goal']) < 0.1:
-                            success_rate += 1
-                            success = True
-                            break
-                    if 'Flip' in args.env_name:
-                        if np.linalg.norm(env.unwrapped.robot.get_ee_position() - env.unwrapped.task.object_position) < 0.05 and not reached_object:
-                            success_rate += 0.5
-                            reached_object = True
             if success:
                 break
         
