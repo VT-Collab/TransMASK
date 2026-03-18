@@ -65,5 +65,8 @@ def get_config():
     elif args.method == 'our':
         use_mask = True
     args.method_params = {'use_mask': use_mask,
-                         'use_vae': use_vae}
+                          'use_vae': use_vae}
+    if args.policy == 'diffusion':
+        args.sequential = True
+        args.use_ema_model = True
     return args
