@@ -51,6 +51,12 @@ To train a Behavior Cloning (BC) policy on a dataset with privileged state infor
 python train.py --dataset_path [dataset_path] --device cuda --env_name [env_name] --policy [policy_type] --savename [save_name] --epochs 500 --num_distractors 4 --method [method]
 ```
 
+To train a Behavior Cloning (BC) policy on a dataset with image observations, run the following command:
+
+```
+python train.py --dataset_path [dataset_path] --device cuda --env_name [env_name] --policy [policy_type] --savename [save_name] --epochs 500 --num_distractors 4 --method [method] --use_image_obs
+```
+
 The ```--env_name``` argument has the following options:
 - PandaPickAndPlace-v3
 - PandaPush-v3
